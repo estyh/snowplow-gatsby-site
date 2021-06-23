@@ -40,7 +40,9 @@
 
    And voila! The site is now running on <http://localhost:9000/>
 
-   You can view the tracked events at <http://localhost:9090/>
+   You can view the tracked snowplow events at <http://localhost:9090/micro/all>
+
+   Full documentation of available snowplow micro queries [here](https://github.com/snowplow-incubator/snowplow-micro/)
 
 ## 🎓 If you want to make it your own
 

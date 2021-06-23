@@ -1,7 +1,11 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import { newTracker, trackPageView } from "@snowplow/browser-tracker"
+import {
+  newTracker,
+  trackPageView,
+  trackStructEvent,
+} from "@snowplow/browser-tracker"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -12,7 +16,15 @@ newTracker("sp1", "http://localhost:9090", {
   plugins: [],
 })
 
-trackPageView()
+// trackPageView() NOT INTERESTING FOR NOW...
+
+const trackLectureView = title =>
+  trackStructEvent({
+    category: "Lectures",
+    action: "View",
+    label: title,
+    value: 0.0,
+  })
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -35,7 +47,11 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link
+                      to={post.fields.slug}
+                      itemProp="url"
+                      onClick={trackLectureView(title)}
+                    >
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
