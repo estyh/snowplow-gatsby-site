@@ -1,0 +1,21 @@
+{
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+    "description": "Schema for a like event",
+    "self": {
+        "vendor": "test.example",
+        "name": "like_event",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "stars": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5,
+            "multipleOf": 1
+        }
+    },
+    "required": ["stars"],
+    "additionalProperties": false
+}
