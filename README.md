@@ -69,3 +69,9 @@
 - I chose a [basic boilerplate starter](https://github.com/gatsbyjs/gatsby-starter-blog) to get things off the ground.
 
 ### Snowplow Events
+
+- simple page view tracking (disabled for now)
+- structured event tracking - for clicked links (realized after that there's a plugin for this!)
+- custom event tracking - messy implementation of rating a lecture with stars
+
+> Based on example custom event in the [snowplow micro examples repo](https://github.com/snowplow-incubator/snowplow-micro-examples)
