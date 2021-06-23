@@ -5,6 +5,7 @@ import {
   newTracker,
   trackPageView,
   trackStructEvent,
+  trackSelfDescribingEvent,
 } from "@snowplow/browser-tracker"
 
 import Bio from "../components/bio"
@@ -24,6 +25,16 @@ const trackLectureView = title =>
     action: "View",
     label: title,
     value: 0.0,
+  })
+
+const trackStars = starCount =>
+  trackSelfDescribingEvent({
+    event: {
+      schema: "iglu:test.example.iglu/like_event/jsonschema/1-0-0",
+      data: {
+        stars: starCount,
+      },
+    },
   })
 
 const BlogIndex = ({ data, location }) => {
@@ -50,12 +61,23 @@ const BlogIndex = ({ data, location }) => {
                     <Link
                       to={post.fields.slug}
                       itemProp="url"
-                      onClick={trackLectureView(title)}
+                      onClick={() => trackLectureView(title)}
                     >
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
                   <small>{post.frontmatter.date}</small>
+                  {[1, 2, 3, 4, 5].map(n => {
+                    return (
+                      <span
+                        className="stars"
+                        key={n}
+                        onClick={() => trackStars(n)}
+                      >
+                        🤍
+                      </span>
+                    )
+                  })}
                 </header>
                 <section>
                   <p

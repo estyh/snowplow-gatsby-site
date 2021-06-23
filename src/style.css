@@ -286,6 +286,21 @@ a:focus {
   font-size: var(--fontSize-2);
 }
 
+.stars {
+  cursor: pointer;
+  position: relative;
+  /* display:inline-block; */
+}
+/* .stars:before {
+  cursor: pointer;
+} */
+.stars:hover::before {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  content: "❤️";
+}
+
 .bio {
   display: flex;
   margin-bottom: var(--spacing-16);
