@@ -14,45 +14,16 @@ const Bio = () => {
     query BioQuery {
       site {
         siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
+          description
         }
       }
     }
   `)
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author
-  const social = data.site.siteMetadata?.social
+  const description = data.site.siteMetadata?.description
 
-  return (
-    <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        formats={["AUTO", "WEBP", "AVIF"]}
-        src="../images/profile-pic.png"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
-      {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
-        </p>
-      )}
-    </div>
-  )
+  return <div className="bio">{description && <p>{description}</p>}</div>
 }
 
 export default Bio

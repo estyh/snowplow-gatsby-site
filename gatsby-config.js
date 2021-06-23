@@ -1,15 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `University Lectures`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Esty Heller`,
+      summary: `Trying out snowplow and gatsby!`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    description: `Here is a collection of public lectures from our great university, hear them all!`,
+    siteUrl: `https://github.com/estyh/snowplow-gatsby-site`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -112,8 +109,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Snowplow Gatsby Site`,
+        short_name: `SnowployGatsby`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
